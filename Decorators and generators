@@ -1,0 +1,17 @@
+def tea_generator():
+    for i in range(1, 4):
+        yield f"Cup {i}"
+
+def greeting_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Welcome to the Tea Shop! 🍵")
+        func(*args, **kwargs)
+        print("Thank you for visiting! 🙏")
+    return wrapper
+
+@greeting_decorator
+def serve_tea():
+    for tea in tea_generator():
+        print("Serving:", tea)
+
+serve_tea()
